@@ -6,3 +6,4 @@ class Water(pygame.sprite.Sprite):
         self.image = pygame.image.load('PLACEHOLDER')
         self.image = pygame.transform.scale(self.image,(width,height))
         self.rect = pygame.Rect(self.x, self.y, width, height)
+    #def 
