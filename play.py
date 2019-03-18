@@ -12,6 +12,10 @@
 
 #add_logs
 
+#update_turtles
+
+#update_logs
+
 #scorebox
 
 #is_collision
