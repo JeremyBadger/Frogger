@@ -1,6 +1,7 @@
 #init and whatnot idk
 
 #define everything whoever wants to do that
+game_over = False
 
 #add_cars
 
@@ -18,10 +19,37 @@
 
 #scorebox
 
-#is_collision
+def is_collision():
+    global game_over
+    #if pygame.sprite.spritecollideany(frog, enemy):
+        #game_over == True
+        #display_message("Game over")
 
+
+def win():
+    global game_over
+    #if frog.x => 0 and frog.x <= 24:
+        #game_over == True
+        #display_message("Win")
 
 while True:
+    if game_over == False:
+        #draw frog
+        #add_cars
+        #update_cars
+        #update_frog
+        #add_turtles
+        #update_turtles
+        #add_logs
+        #update_logs
+        #scorebox
+        is_collision()
+        win()
+    elif game_over == True:
+        #frog.kill()
+        #car.kill()
+        #log.kill()
+        #turtle.kill()
     if event.type==KEYDOWN:
         if event.key==K_UP:
             x.up(150)
