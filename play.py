@@ -1,6 +1,6 @@
 #init and whatnot idk
 
-#define everything whoever wants to do that
+game_over = False
 
 #add_cars
 
@@ -18,10 +18,20 @@
 
 #scorebox
 
-#is_collision
+is_collision():
+    global game_over
+    if pygame.sprite,spritecollideany(frog, enemy):
+        game_over = True
+    else:
+        game_over = False
 
 DISPLAYSURF.blit(rex.image,rex.rect)
 while True:
+    if game_over == True:
+        frog.kill()
+        cars.kill()
+        turtle.kill()
+        log.kill()
     if event.type==KEYDOWN:
         if event.key==K_UP:
             x.up(150)
