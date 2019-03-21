@@ -20,21 +20,17 @@
 
 #is_collision
 
-
+DISPLAYSURF.blit(rex.image,rex.rect)
 while True:
     if event.type==KEYDOWN:
         if event.key==K_UP:
             x.up(150)
-            DISPLAYSURF.blit(rex.image,rex.rect)
         if event.key==K_DOWN:
             x.down(150)
-            DISPLAYSURF.blit(rex.image,rex.rect)
         if event.key==K_LEFT:
             x.left(150)
-            DISPLAYSURF.blit(rex.image,rex.rect)
         if event.key==K_RIGHT:
             x.right(150)
-            DISPLAYSURF.blit(rex.image,rex.rect)
     for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.quit()
