@@ -11,6 +11,7 @@ class WaterObject(pygame.sprite.sprite):
     def __init__(self, posY, leftRight):
         self.leftRight = leftRight
         self.y = posY
+        self.image = TURTLE
 
         #Sets the sprite on the left or right side of the sceen based on which way it is moving
         if self.leftRight == "LEFT":
