@@ -2,21 +2,21 @@
 
 game_over = False
 
-#add_cars
+#add_cars()
 
-#update_cars
+#update_cars()
 
-#update_frog
+#update_frog()
 
-#add_turtles
+#add_turtles()
 
-#add_logs
+#add_logs()
 
-#update_turtles
+#update_turtles()
 
-#update_logs
+#update_logs()
 
-#scorebox
+#scorebox()
 
 is_collision():
     global game_over
@@ -32,6 +32,14 @@ while True:
         cars.kill()
         turtle.kill()
         log.kill()
+    if game_over == False:
+        add_cars()
+        update_cars()
+        add_turtles()
+        add_logs()
+        update_turtles()
+        update_logs()
+        scorebox()
     if event.type==KEYDOWN:
         if event.key==K_UP:
             x.up(150)
@@ -47,5 +55,3 @@ while True:
                 sys.exit()
     pygame.display.update()
     fpsClock.tick(FPS)
-
-    #blah blah blah etc
