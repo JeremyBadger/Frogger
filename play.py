@@ -1,4 +1,10 @@
-#init and whatnot idk
+import pygame, sys, time
+from pygame.locals import *
+
+from frogClass import frog
+from carClass import cars
+from turtleClass import turtle
+from waterClass import water 
 
 game_over = False
 
