@@ -4,27 +4,29 @@ from pygame.locals import *
 from frogClass import frog
 from carClass import cars
 from turtleClass import turtle
-from waterClass import water 
+from waterClass import water
+
+pygame.init()
 
 game_over = False
 
-#add_cars()
+def add_cars():
 
-#update_cars()
+def update_cars():
 
-#update_frog()
+def update_frog():
 
-#add_turtles()
+def add_turtles():
 
-#add_logs()
+def add_logs():
 
-#update_turtles()
+def update_turtles():
 
-#update_logs()
+def update_logs():
 
-#scorebox()
+def scorebox():
 
-is_collision():
+def is_collision():
     global game_over
     if pygame.sprite,spritecollideany(frog, enemy):
         game_over = True
