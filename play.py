@@ -6,25 +6,52 @@ from carClass import cars
 from turtleClass import turtle
 from waterClass import water
 
+frogger = frog(150)
+car = cars(150)
+turtles = turtle(150)
+log = water(150)
+
 pygame.init()
+
+DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
+
+BACKGROUND = ('resources/background.png')
 
 game_over = False
 
 def add_cars():
+    if time % 120 == 0:
+        enemy.add(car)
 
 def update_cars():
+    for car1 in enemy:
+        car1.move()
+        car1.update()
+        DISPLAYSURF.blit(car1.image, car1.rect)
 
-def update_frog():
+#def update_frog():
 
 def add_turtles():
+    if time % 120 == 0:
+        enemy.add(turtle)
 
 def add_logs():
+    if time % 120 == 0:
+        enemy.add(log)
 
 def update_turtles():
+    for turtle1 in enemy:
+        turtle1.move()
+        turtle1.update()
+        DISPLAYSURF.blit(turtle1.image, turtle1.rect)
 
 def update_logs():
+    for log1 in enemy:
+        log1.move()
+        log1.update()
+        DISPLAYSURF.blit(log1.image, log1.rect)
 
-def scorebox():
+#def scorebox():
 
 def is_collision():
     global game_over
@@ -33,6 +60,11 @@ def is_collision():
     else:
         game_over = False
 
+def game_over():
+    global game_over
+    if game_over == True:
+        display_message("Game over.")
+
 DISPLAYSURF.blit(rex.image,rex.rect)
 while True:
     if game_over == True:
@@ -40,7 +72,9 @@ while True:
         cars.kill()
         turtle.kill()
         log.kill()
+        game_over()
     if game_over == False:
+        DISPLAYSURF.blit(frogger.image, frogger.rect)
         add_cars()
         update_cars()
         add_turtles()
