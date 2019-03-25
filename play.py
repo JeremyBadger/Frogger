@@ -50,13 +50,13 @@ while True:
         scorebox()
     if event.type==KEYDOWN:
         if event.key==K_UP:
-            x.up(25)
+            frog.up(25)
         if event.key==K_DOWN:
-            x.down(25)
+            frog.down(25)
         if event.key==K_LEFT:
-            x.left(25)
+            frog.left(25)
         if event.key==K_RIGHT:
-            x.right(25)
+            frog.right(25)
     for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.quit()
