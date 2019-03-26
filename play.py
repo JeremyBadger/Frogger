@@ -3,7 +3,8 @@ from pygame.locals import *
 
 from frogClass import frog
 from carClass import cars
-from turtleClass import WaterObject
+waterObjects = pygame.sprite.Group()
+from turtleClass import *
 from waterClass import Water
 
 frog = frog()
@@ -19,7 +20,6 @@ BACKGROUND = ('resources/background.png')
 
 game_over = False
 
-waterObjects = pygame.sprite.Group()
 
 def add_cars():
     if time % 120 == 0:
