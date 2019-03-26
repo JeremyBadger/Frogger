@@ -11,7 +11,6 @@ class frog(pygame.sprite.Sprite):
         points = 0
         self.x = 275
         self.y = 200
-        frog = frogClass(self.x,self.y)
 
     def up(self):
         self.rect.y = self.rect.y - 20
