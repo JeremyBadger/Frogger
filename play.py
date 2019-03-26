@@ -19,7 +19,6 @@ BACKGROUND = ('resources/background.png')
 
 game_over = False
 
-enemy = pygame.sprite.Group()
 waterObjects = pygame.sprite.Group()
 
 def add_cars():
