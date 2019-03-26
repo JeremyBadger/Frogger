@@ -5,7 +5,7 @@ from pygame.locals import *
 class frog(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = frog.png
+        self.image = 'frog.png'
         self.imgage = pygame.transform.scale(frog.png, (25,25))
         self.rect = pygame.Rect(25,25,25,25)
         points = 0
