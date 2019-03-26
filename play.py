@@ -11,7 +11,7 @@ car = cars(250)
 turtles = turtle(75, "LEFT")
 water = water(400,100,0,25)
 
-pygame.init()
+enemy = pygame.sprite.Group()
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
 
