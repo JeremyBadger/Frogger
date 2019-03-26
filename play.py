@@ -6,12 +6,15 @@ from carClass import cars
 from turtleClass import turtle
 from waterClass import water
 
+pygame.init()
+
+
 frogger = frog(150)
 car = cars(150)
 turtles = turtle(150)
 log = water(150)
 
-pygame.init()
+enemy = pygame.sprite.Group()
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
 
