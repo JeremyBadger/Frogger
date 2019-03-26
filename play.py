@@ -56,7 +56,7 @@ def update_turtles():
 
 def is_collision():
     global game_over
-    if pygame.sprite,spritecollideany(frog, enemy):
+    if pygame.sprite.spritecollideany(frog, enemy):
         game_over = True
     else:
         game_over = False
