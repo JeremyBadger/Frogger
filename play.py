@@ -9,8 +9,8 @@ from waterClass import Water
 
 frog = frog()
 car = cars(250)
-turtles = turtle(75, "LEFT")
-water = water(400,100,0,25)
+turtles = WaterObject(75, "LEFT")
+water = Water(400,100,0,25)
 
 enemy = pygame.sprite.Group()
 
