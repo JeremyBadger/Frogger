@@ -3,8 +3,8 @@ from pygame.locals import *
 
 from frogClass import frog
 from carClass import cars
-from turtleClass import turtle
-from waterClass import water
+from turtleClass import WaterObject
+from waterClass import Water
 
 frog = frog()
 car = cars(250)
