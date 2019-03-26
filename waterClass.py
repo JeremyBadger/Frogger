@@ -1,3 +1,5 @@
+import pygame, sys, time
+from pygame.locals import *
 class Water(pygame.sprite.Sprite):
     def __init__(self, width, height, posX, posY):
         super().__init__()
