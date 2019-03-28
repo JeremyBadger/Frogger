@@ -11,10 +11,11 @@ class frog(pygame.sprite.Sprite):
         points = 0
         self.x = 275
         self.y = 200
+        self.points = 0
 
     def up(self):
         self.rect.y = self.rect.y - 20
-        points = points + 100
+        self.points = self.points + 100
 
     def left(self):
         self.rect.x = self.rect.x - 25
@@ -24,4 +25,4 @@ class frog(pygame.sprite.Sprite):
 
     def down(self):
         self.rect.y = self.rect.y + 25
-        points = points - 100
+        self.points = self.points - 100
