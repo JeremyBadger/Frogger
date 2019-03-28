@@ -1,6 +1,6 @@
 import pygame, sys, time
 from pygame.locals import *
-from play import waterObjects
+
 
 #Creates and transforms images to desired size
 TURTLE = pygame.image.load('resources/turtle.png')
@@ -45,14 +45,14 @@ class WaterObject(pygame.sprite.Sprite):
                 self.move()
 
 #Things for the game loop
-global onWaterObj
-onWaterObj = False
+#global onWaterObj
+#onWaterObj = False
 
 
 #Detects collisions between the frog and any object in the water
 #Loops through the sprite group to get which exact log the frog is on
-for loop in waterObjects:
-    if pygame.sprite.collide_rect(frog, loop):
-        onWaterObj = loop
-if onWaterObj != False:
-    frog.rect.x = onWaterObj.rect.x
+#for loop in waterObjects:
+#    if pygame.sprite.collide_rect(frog, loop):
+#        onWaterObj = loop
+#if onWaterObj != False:
+#    frog.rect.x = onWaterObj.rect.x
