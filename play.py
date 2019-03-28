@@ -19,6 +19,7 @@ fpsClock = pygame.time.Clock()
 enemy = pygame.sprite.Group()
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
+pygame.display.set_caption("Frogger")
 
 BACKGROUND = ('resources/background.png')
 
@@ -55,7 +56,13 @@ def update_turtles():
 #        log1.update()
 #        DISPLAYSURF.blit(log1.image, log1.rect)
 
-#def scorebox():
+def scorebox():
+    BASICFONT = pygame.font.Font("freesansbold.ttf", 16)
+    Surf = BASICFONT.render(text, 1, (0,0,0))
+    Rect = Surf.get_rect()
+    Rect.topleft = (10, 10)
+    DISPLAYSURF.blit(Surf, Rect)
+    display_message("Score: " + str(frogger.score))
 
 def is_collision():
     global game_over
