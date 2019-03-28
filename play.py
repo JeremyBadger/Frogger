@@ -81,18 +81,19 @@ while True:
         update_turtles()
         update_logs()
         scorebox()
-    if event.type==KEYDOWN:
-        if event.key==K_UP:
-            frog.up(25)
-        if event.key==K_DOWN:
-            frog.down(25)
-        if event.key==K_LEFT:
-            frog.left(25)
-        if event.key==K_RIGHT:
-            frog.right(25)
+
     for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type==KEYDOWN:
+                if event.key==K_UP:
+                    frog.up(25)
+                if event.key==K_DOWN:
+                    frog.down(25)
+                if event.key==K_LEFT:
+                    frog.left(25)
+                if event.key==K_RIGHT:
+                    frog.right(25)
     pygame.display.update()
     fpsClock.tick(FPS)
