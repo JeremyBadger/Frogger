@@ -78,9 +78,9 @@ def game_over():
     if game_over == True:
         display_message("Game over.")
 
-DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
-DISPLAYSURF.blit(frog.image,frog.rect)
 while True:
+    DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
+    DISPLAYSURF.blit(frog.image,frog.rect)
     if game_over == True:
         frog.kill()
         cars.kill()
