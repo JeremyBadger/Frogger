@@ -12,6 +12,10 @@ car = cars(250)
 turtles = WaterObject(75, "LEFT")
 water = Water(400,100,0,25)
 
+FPS = 10
+
+fpsClock = pygame.time.Clock()
+
 enemy = pygame.sprite.Group()
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
