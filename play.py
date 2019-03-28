@@ -37,6 +37,10 @@ def update_cars():
         car1.move()
         car1.update()
         DISPLAYSURF.blit(car1.image, car1.rect)
+    if car.rect.x <= 0 or car.rect.x >= 400:
+        car1.kill()
+    elif car.rect.y <= 0 or car.rect.y >= 300:
+        car1.kill()
 
 #def update_frog():
 
@@ -52,6 +56,10 @@ def update_turtles():
     for turtle1 in waterObjects:
         turtle1.update()
         DISPLAYSURF.blit(turtle1.image, turtle1.rect)
+    if turtle.rect.x <= 0 or turtle.rect.x >= 400:
+        turtle1.kill()
+    elif turtle.rect.y <= 0 or turtle.rect.y >= 300:
+        turtle1.kill()
 
 #def update_logs():
 #    for log1 in waterObjects:
@@ -91,9 +99,9 @@ while True:
         add_cars()
         update_cars()
         add_turtles()
-        add_logs()
+        #add_logs()
         update_turtles()
-        update_logs()
+        #update_logs()
         scorebox()
 
     for event in pygame.event.get():
