@@ -14,7 +14,7 @@ class frog(pygame.sprite.Sprite):
         self.points = 0
 
     def up(self):
-        self.rect.y = self.rect.y - 20
+        self.rect.y = self.rect.y - 25
         self.points = self.points + 100
 
     def left(self):
