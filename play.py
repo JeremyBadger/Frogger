@@ -21,7 +21,9 @@ enemy = pygame.sprite.Group()
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
 pygame.display.set_caption("Frogger")
 
-BACKGROUND = ('resources/background.png')
+BACKGROUND = pygame.image.load('resources/background.png')
+background_x = 0
+background_y = 0
 
 game_over = False
 
@@ -76,6 +78,7 @@ def game_over():
     if game_over == True:
         display_message("Game over.")
 
+DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
 DISPLAYSURF.blit(frog.image,frog.rect)
 while True:
     if game_over == True:
