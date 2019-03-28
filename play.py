@@ -92,12 +92,12 @@ while True:
                 sys.exit()
             if event.type==KEYDOWN:
                 if event.key==K_UP:
-                    frog.up(25)
+                    frog.up()
                 if event.key==K_DOWN:
-                    frog.down(25)
+                    frog.down()
                 if event.key==K_LEFT:
-                    frog.left(25)
+                    frog.left()
                 if event.key==K_RIGHT:
-                    frog.right(25)
+                    frog.right()
     pygame.display.update()
     fpsClock.tick(FPS)
