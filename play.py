@@ -3,20 +3,21 @@ from pygame.locals import *
 
 from frogClass import frog
 from carClass import cars
-waterObjects = pygame.sprite.Group()
 from turtleClass import *
 from waterClass import Water
 
 frog = frog()
 car = cars(250)
-turtles = WaterObject(75, "LEFT")
 water = Water(400,100,0,25)
 
 FPS = 10
 time = 0
 
+pygame.init()
+
 fpsClock = pygame.time.Clock()
 
+waterObjects = pygame.sprite.Group()
 enemy = pygame.sprite.Group()
 cars = pygame.sprite.Group()
 enemy.add(water)
@@ -49,6 +50,7 @@ def update_cars():
 
 def add_turtles():
     if time % 120 == 0:
+        turtles = WaterObject(75, "LEFT")
         waterObjects.add(turtles)
 
 #def add_logs():

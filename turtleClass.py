@@ -12,6 +12,7 @@ class WaterObject(pygame.sprite.Sprite):
 
     #Sets up all of the values needed to initialize the sprite: the sprite's y position, and determining if it is going to the left or right
     def __init__(self, posY, leftRight):
+        super().__init__()
         self.leftRight = leftRight
         self.y = posY
         self.image = TURTLE
