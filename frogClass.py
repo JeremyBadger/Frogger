@@ -13,7 +13,7 @@ class frog(pygame.sprite.Sprite):
         self.y = 200
 
     def up(self):
-        self.rect.y = self.rect.y - 20
+        self.rect.y = self.rect.y - 25
         self.points = self.points + 100
         if self.rect.y < 0:
             self.kill()
