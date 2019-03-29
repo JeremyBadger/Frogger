@@ -13,6 +13,7 @@ turtles = WaterObject(75, "LEFT")
 water = Water(400,100,0,25)
 
 FPS = 10
+time = 0
 
 fpsClock = pygame.time.Clock()
 
@@ -47,7 +48,7 @@ def update_cars():
 
 def add_turtles():
     if time % 120 == 0:
-        waterObjects.add(turtle)
+        waterObjects.add(turtles)
 
 #def add_logs():
 #    if time % 120 == 0:
@@ -104,7 +105,7 @@ while True:
         update_turtles()
         #update_logs()
         scorebox()
-
+        time += 1
     for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.quit()
