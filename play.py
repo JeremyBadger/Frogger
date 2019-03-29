@@ -31,7 +31,7 @@ background_y = 0
 
 game_over = False
 
-
+text = "no u"
 def add_cars():
     if time % 120 == 0:
         cars.add(car)
