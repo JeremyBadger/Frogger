@@ -17,6 +17,7 @@ FPS = 10
 fpsClock = pygame.time.Clock()
 
 enemy = pygame.sprite.Group()
+enemy.add(water)
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
 pygame.display.set_caption("Frogger")
@@ -46,7 +47,7 @@ def update_cars():
 
 def add_turtles():
     if time % 120 == 0:
-        enemy.add(turtle)
+        waterObjects.add(turtle)
 
 #def add_logs():
 #    if time % 120 == 0:
@@ -117,5 +118,6 @@ while True:
                     frog.left()
                 if event.key==K_RIGHT:
                     frog.right()
+    add_turtles()
     pygame.display.update()
     fpsClock.tick(FPS)
