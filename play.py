@@ -18,6 +18,7 @@ time = 0
 fpsClock = pygame.time.Clock()
 
 enemy = pygame.sprite.Group()
+cars = pygame.sprite.Group()
 enemy.add(water)
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
@@ -32,10 +33,10 @@ game_over = False
 
 def add_cars():
     if time % 120 == 0:
-        enemy.add(car)
+        cars.add(car)
 
 def update_cars():
-    for car1 in enemy:
+    for car1 in cars:
         car1.move()
         car1.update()
         DISPLAYSURF.blit(car1.image, car1.rect)
