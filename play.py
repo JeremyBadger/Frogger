@@ -92,10 +92,10 @@ while True:
     DISPLAYSURF.blit(frog.image,frog.rect)
     if game_over == True:
         frog.kill()
-        cars.kill()
-        turtle.kill()
-        log.kill()
-        game_over()
+        #cars.kill()
+        #turtle.kill()
+        #log.kill()
+        #game_over()
     if game_over == False:
         add_cars()
         update_cars()
@@ -118,6 +118,6 @@ while True:
                     frog.left()
                 if event.key==K_RIGHT:
                     frog.right()
-    add_turtles()
+    is_collision()
     pygame.display.update()
     fpsClock.tick(FPS)
