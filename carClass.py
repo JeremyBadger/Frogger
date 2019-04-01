@@ -6,8 +6,8 @@ CAR= pygame.image.load('resources/car.png')
 class cars(pygame.sprite.Sprite):
     def __init__(self, ground):
         super().__init__()
-        self.x=156
-        self.y=280
+        self.x=400
+        self.y=350
         self.rect=pygame.Rect(self.x,self.y,25,35)
         self.image=CAR
 

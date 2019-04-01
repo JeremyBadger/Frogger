@@ -9,8 +9,8 @@ class frog(pygame.sprite.Sprite):
         self.imgage = pygame.transform.scale(FROG, (25,25))
         self.rect = pygame.Rect(25,25,25,25)
         self.points = 0
-        self.x = 275
-        self.y = 200
+        self.x = 300
+        self.y = 1000
 
     def up(self):
         self.rect.y = self.rect.y - 25
