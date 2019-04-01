@@ -42,9 +42,9 @@ def update_cars():
         car1.update()
         DISPLAYSURF.blit(car1.image, car1.rect)
     if car.rect.x < 0 or car.rect.x > 400:
-        car1.kill()
+        car.kill()
     elif car.rect.y < 0 or car.rect.y > 300:
-        car1.kill()
+        car.kill()
 
 #def update_frog():
 
