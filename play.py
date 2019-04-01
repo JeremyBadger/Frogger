@@ -69,12 +69,12 @@ def update_turtles():
 #        log1.update()
 #        DISPLAYSURF.blit(log1.image, log1.rect)
 
-def scorebox():
+def scorebox(text):
     BASICFONT = pygame.font.Font("freesansbold.ttf", 16)
     Surf = BASICFONT.render(text, 1, (0,0,0))
     Rect = Surf.get_rect()
     Rect.topleft = (10, 10)
-    DISPLAYSURF.blit(("Score: " + str(frogger.score))
+    DISPLAYSURF.blit(Surf, Rect)
 
 def is_collision():
     global game_over
@@ -86,7 +86,7 @@ def is_collision():
 def game_over():
     global game_over
     if game_over == True:
-        display_message("Game over.")
+        scorebox("Game over.")
 
 while True:
     DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
@@ -104,7 +104,7 @@ while True:
         #add_logs()
         update_turtles()
         #update_logs()
-        scorebox()
+        scorebox("Score: " + str(frog.points))
         time += 1
     for event in pygame.event.get():
             if event.type==QUIT:
