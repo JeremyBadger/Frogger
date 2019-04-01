@@ -74,8 +74,7 @@ def scorebox():
     Surf = BASICFONT.render(text, 1, (0,0,0))
     Rect = Surf.get_rect()
     Rect.topleft = (10, 10)
-    DISPLAYSURF.blit(Surf, Rect)
-    display_message("Score: " + str(frogger.score))
+    DISPLAYSURF.blit(("Score: " + str(frogger.score))
 
 def is_collision():
     global game_over
