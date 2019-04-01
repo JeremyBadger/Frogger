@@ -93,7 +93,7 @@ while True:
     DISPLAYSURF.blit(frog.image,frog.rect)
     if game_over == True:
         frog.kill()
-        #cars.kill()
+        car.kill()
         #turtle.kill()
         #log.kill()
         #game_over()
