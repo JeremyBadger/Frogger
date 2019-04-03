@@ -61,8 +61,8 @@ def update_turtles():
     for turtle1 in waterObjects:
         turtle1.update()
         DISPLAYSURF.blit(turtle1.image, turtle1.rect)
-    if water.y < 0 or water.y > 300:
-        turtle1.kill()
+        if turtle1.x < 0 or turtle1.x > 300:
+            turtle1.kill()
 
 #def update_logs():
 #    for log1 in waterObjects:
