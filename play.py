@@ -29,6 +29,9 @@ BACKGROUND = pygame.image.load('resources/background.png')
 background_x = 0
 background_y = 0
 
+global onWaterObj
+onWaterObj = False
+
 game_over = False
 
 text = ""
@@ -80,9 +83,10 @@ def is_collision():
     global game_over
     if pygame.sprite.spritecollideany(frog, enemy):
         game_over = True
+        return game_over
     else:
         game_over = False
-
+        return game_over
 def game_over():
     global game_over
     if game_over == True:
@@ -92,8 +96,10 @@ while True:
     DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
     DISPLAYSURF.blit(frog.image,(frog.rect.x, frog.rect.y))
     if game_over == True:
-        frog.kill()
-        car.kill()
+        pygame.quit()
+        sys.exit()
+        #frog.kill()
+        #car.kill()
         #turtle.kill()
         #log.kill()
         #game_over()
@@ -119,6 +125,14 @@ while True:
                     frog.left()
                 if event.key==K_RIGHT:
                     frog.right()
-    is_collision()
+
+    #Detects collisions between the frog and any object in the water
+    #Loops through the sprite group to get which exact log the frog is on
+    for loop in waterObjects:
+        if pygame.sprite.collide_rect(frog, loop):
+            onWaterObj = loop
+    if onWaterObj != False:
+        frog.rect.x = onWaterObj.rect.x
+    game_over = is_collision()
     pygame.display.update()
     fpsClock.tick(FPS)
