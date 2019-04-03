@@ -7,7 +7,7 @@ from turtleClass import *
 from waterClass import Water
 
 frog = frog()
-car = cars(250)
+car = cars(300)
 water = Water(400,100,0,25)
 
 FPS = 10
