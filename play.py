@@ -31,7 +31,7 @@ background_y = 0
 
 game_over = False
 
-text = "no u"
+text = ""
 def add_cars():
     if time % 120 == 0:
         cars.add(car)
@@ -90,7 +90,7 @@ def game_over():
 
 while True:
     DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
-    DISPLAYSURF.blit(frog.image,frog.rect)
+    DISPLAYSURF.blit(frog.image,(frog.rect.x, frog.rect.y))
     if game_over == True:
         frog.kill()
         car.kill()
