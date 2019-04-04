@@ -8,6 +8,7 @@ from waterClass import Water
 
 frog = frog()
 car = cars(300)
+car2=cars(300)
 water = Water(400,100,0,25)
 
 FPS = 10
@@ -38,6 +39,7 @@ text = ""
 def add_cars():
     if time % 120 == 0:
         cars.add(car)
+        cars.add(car2)
 
 def update_cars():
     for car1 in cars:
