@@ -7,8 +7,7 @@ from turtleClass import *
 from waterClass import Water
 
 frog = frog()
-car = cars(300)
-car2=cars(300)
+car = cars(225)
 water = Water(400,100,0,25)
 
 FPS = 10
@@ -20,7 +19,7 @@ fpsClock = pygame.time.Clock()
 
 waterObjects = pygame.sprite.Group()
 enemy = pygame.sprite.Group()
-cars = pygame.sprite.Group()
+#cars = pygame.sprite.Group()
 enemy.add(water)
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
@@ -38,14 +37,15 @@ game_over = False
 text = ""
 def add_cars():
     if time % 120 == 0:
-        cars.add(car)
-        cars.add(car2)
+        car = cars(225)
+        enemy.add(car)
 
 def update_cars():
-    for car1 in cars:
-        car1.move()
-        car1.update()
-        DISPLAYSURF.blit(car1.image, car1.rect)
+    for car1 in enemy:
+        if car1.type == "CAR":
+            car1.move()
+            car1.update()
+            DISPLAYSURF.blit(car1.image, car1.rect)
     if car.rect.x < 0 or car.rect.x > 400:
         car.kill()
     elif car.rect.y < 0 or car.rect.y > 300:
