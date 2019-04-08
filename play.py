@@ -9,6 +9,7 @@ from waterClass import Water
 frog = frog()
 car = cars(225)
 water = Water(400,100,0,25)
+log = WaterObject(100, "RIGHT")
 
 FPS = 10
 time = 0
@@ -58,9 +59,9 @@ def add_turtles():
         turtles = WaterObject(75, "LEFT")
         waterObjects.add(turtles)
 
-#def add_logs():
-#    if time % 120 == 0:
-#        waterObjects.add(log)
+def add_logs():
+    if time % 120 == 0:
+        waterObjects.add(log)
 
 def update_turtles():
     for turtle1 in waterObjects:

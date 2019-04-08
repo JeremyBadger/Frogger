@@ -16,6 +16,7 @@ class WaterObject(pygame.sprite.Sprite):
         self.leftRight = leftRight
         self.y = posY
         self.image = TURTLE
+        self.x = 0
 
         #Sets the sprite on the left or right side of the sceen based on which way it is moving
         if self.leftRight == "LEFT":
@@ -27,9 +28,9 @@ class WaterObject(pygame.sprite.Sprite):
     #Moves the sprite one tile
     def move(self):
         if self.leftRight == "LEFT":
-            self.x -= 25
+            self.x -= 5
         else:
-            self.x += 25
+            self.x += 5
 
     #Kills itself if it needs killing, moves itself if it needs moving.
     #***Might have to move the kill into game loop only
