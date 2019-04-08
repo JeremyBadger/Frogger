@@ -23,14 +23,14 @@ class WaterObject(pygame.sprite.Sprite):
             self.x = 400
         else:
             self.x == 0
-        self.rect = pygame.Rect(self.x, self.y, 25,25)
+        self.rect = pygame.Rect(self.x, self.y, 25,6)
 
     #Moves the sprite one tile
     def move(self):
         if self.leftRight == "LEFT":
-            self.x -= 5
+            self.rect.x -= 5
         else:
-            self.x += 5
+            self.rect.x += 5
 
     #Kills itself if it needs killing, moves itself if it needs moving.
     #***Might have to move the kill into game loop only
