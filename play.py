@@ -54,7 +54,7 @@ def update_cars():
 #def update_frog():
 
 def add_turtles():
-    if time % 120 == 0:
+    if time % 30 == 0:
         turtles = WaterObject(100, "LEFT")
         waterObjects.add(turtles)
 
@@ -81,7 +81,7 @@ def scorebox(text):
 
 def is_collision():
     global game_over
-    if pygame.sprite.spritecollideany(frog, enemy) and not pygame.sprite.collide_rect(frog, loop):
+    if pygame.sprite.spritecollideany(frog, enemy) and not pygame.sprite.spritecollideany(frog, waterObjects):
         game_over = True
         return game_over
     else:
