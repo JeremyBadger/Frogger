@@ -10,13 +10,13 @@ class cars(pygame.sprite.Sprite):
         super().__init__()
         self.x=400
         self.y=ground
-        self.rect=pygame.Rect(self.x,self.y,25,35)
+        self.rect=pygame.Rect(self.x,self.y,10,10)
         self.image=CAR
         self.type = "CAR"
 
 
     def move(self):
-        if self.x>-100:
+        if self.x>0:
             self.rect.x -= 10
-        elif self.x<= -100:
+        elif self.x<= 0:
             self.x=500
