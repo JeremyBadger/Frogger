@@ -55,19 +55,17 @@ def update_cars():
 
 def add_turtles():
     if time % 120 == 0:
-        turtles = WaterObject(75, "LEFT")
+        turtles = WaterObject(100, "LEFT")
         waterObjects.add(turtles)
 
-#def add_logs():
-#    if time % 120 == 0:
-#        waterObjects.add(log)
+def add_logs():
+    if time % 120 == 0:
+        waterObjects.add(log)
 
 def update_turtles():
     for turtle1 in waterObjects:
         turtle1.update()
         DISPLAYSURF.blit(turtle1.image, turtle1.rect)
-        if turtle1.x < 0 or turtle1.x > 300:
-            turtle1.kill()
 
 #def update_logs():
 #    for log1 in waterObjects:
@@ -83,7 +81,7 @@ def scorebox(text):
 
 def is_collision():
     global game_over
-    if pygame.sprite.spritecollideany(frog, enemy):
+    if pygame.sprite.spritecollideany(frog, enemy) and not pygame.sprite.collide_rect(frog, loop):
         game_over = True
         return game_over
     else:
@@ -96,6 +94,7 @@ def game_over():
 
 while True:
     DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
+    update_turtles()
     DISPLAYSURF.blit(frog.image,(frog.rect.x, frog.rect.y))
     if game_over == True:
         pygame.quit()
@@ -109,8 +108,7 @@ while True:
         add_cars()
         update_cars()
         add_turtles()
-        #add_logs()
-        update_turtles()
+        #add_logs
         #update_logs()
         scorebox("Score: " + str(frog.points))
         time += 1
@@ -121,8 +119,10 @@ while True:
             if event.type==KEYDOWN:
                 if event.key==K_UP:
                     frog.up()
+                    onWaterObj = False
                 if event.key==K_DOWN:
                     frog.down()
+                    onWaterObj = False
                 if event.key==K_LEFT:
                     frog.left()
                 if event.key==K_RIGHT:
