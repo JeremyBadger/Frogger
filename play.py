@@ -55,8 +55,16 @@ def update_cars():
 
 def add_turtles():
     if time % 30 == 0:
-        turtles = WaterObject(100, "LEFT")
+        turtles = WaterObject(100, "LEFT", 6)
+        turtles2 = WaterObject(75, "RIGHT", 5)
         waterObjects.add(turtles)
+        waterObjects.add(turtles2)
+    if time % 20 == 0:
+        turtles3 = WaterObject(50, "RIGHT", 7)
+        waterObjects.add(turtles3)
+    if time % 40 == 0:
+        turtles4 = WaterObject(25, "LEFT", 8)
+        waterObjects.add(turtles4)
 
 def add_logs():
     if time % 120 == 0:
