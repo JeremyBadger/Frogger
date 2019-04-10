@@ -8,7 +8,7 @@ from waterClass import Water
 
 frog = frog()
 car = cars(225)
-water = Water(400,70,0,25)
+water = Water(400,70,0,30)
 
 FPS = 10
 time = 0
@@ -141,6 +141,7 @@ while True:
     for loop in waterObjects:
         if pygame.sprite.collide_rect(frog, loop):
             onWaterObj = loop
+            frog.y = onWaterObj.y
     if onWaterObj != False:
         frog.rect.x = onWaterObj.rect.x
     game_over = is_collision()
