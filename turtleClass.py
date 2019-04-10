@@ -24,7 +24,7 @@ class WaterObject(pygame.sprite.Sprite):
             self.x = 400
         else:
             self.x == 0
-        self.rect = pygame.Rect(self.x, self.y, 10,10)
+        self.rect = pygame.Rect(self.x, self.y, 6,6)
 
     #Moves the sprite one tile
     def move(self):
