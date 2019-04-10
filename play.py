@@ -8,7 +8,7 @@ from waterClass import Water
 
 frog = frog()
 car = cars(225)
-water = Water(400,100,0,25)
+water = Water(400,70,0,25)
 
 FPS = 10
 time = 0
