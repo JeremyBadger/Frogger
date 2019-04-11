@@ -9,8 +9,8 @@ from winClass import Win
 
 frog = frog()
 car = cars(225)
-water = Water(400,70,0,30)
-win = Win(400, 100, 0, 30)
+water = Water(400,100,0,30)
+win = Win(400, 25, 0, 0)
 
 FPS = 10
 time = 0
@@ -32,6 +32,8 @@ pygame.display.set_caption("Frogger")
 BACKGROUND = pygame.image.load('resources/background.png')
 background_x = 0
 background_y = 0
+global isWin
+isWin = False
 
 global onWaterObj
 onWaterObj = False
@@ -93,19 +95,31 @@ def scorebox(text):
 
 def is_collision():
     global game_over
-    if pygame.sprite.spritecollideany(frog, enemy) and not pygame.sprite.spritecollideany(frog, waterObjects) and not pygame.sprite.spritecollideany(frog, endgame):
-        game_over = True
-        return game_over
+    notGameOver = False
+    if pygame.sprite.spritecollideany(frog, enemy):
+        for x in waterObjects:
+            if pygame.sprite.collide_rect(frog, x):
+                notGameOver = True
+                onWaterObj = x
+        if notGameOver == False:
+            game_over = True
+            return game_over
+        else:
+            return game_over
     elif pygame.sprite.spritecollideany(frog, endgame):
-        game_over = True
-        win()
+        game_over = False
+        isWin = True
         return game_over
     else:
         game_over = False
         return game_over
+    if frog.rect.x == 0 or frog.rect.x > 400:
+        game_over = True
+        return game_over
 
 def win():
-    scorebox('You win.')
+    if isWin == True:
+        scorebox('You win.')
 
 def game_over():
     global game_over
@@ -139,10 +153,12 @@ while True:
             if event.type==KEYDOWN:
                 if event.key==K_UP:
                     frog.up()
-                    onWaterObj = False
+                    if onWaterObj != False:
+                        onWaterObj = False
                 if event.key==K_DOWN:
                     frog.down()
-                    onWaterObj = False
+                    if onWaterObj != False:
+                        onWaterObj = False
                 if event.key==K_LEFT:
                     frog.left()
                 if event.key==K_RIGHT:
@@ -153,9 +169,11 @@ while True:
     for loop in waterObjects:
         if pygame.sprite.collide_rect(frog, loop):
             onWaterObj = loop
-            frog.y = onWaterObj.y
+            frog.rect.y = onWaterObj.rect.y
+            frog.rect.x = onWaterObj.rect.x
     if onWaterObj != False:
         frog.rect.x = onWaterObj.rect.x
     game_over = is_collision()
+    win()
     pygame.display.update()
     fpsClock.tick(FPS)
