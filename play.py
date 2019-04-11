@@ -1,3 +1,4 @@
+#imports things
 import pygame, sys, time
 from pygame.locals import *
 
@@ -7,7 +8,7 @@ from turtleClass import *
 from waterClass import Water
 from winClass import Win
 
-#importing classes
+#defining stuff for classes
 frog = frog()
 car = cars(225)
 water = Water(400,100,0,30)
