@@ -6,13 +6,13 @@ from frogClass import frog
 from carClass import cars
 from turtleClass import *
 from waterClass import Water
-from winClass import Win
+#from winClass import Win
 
 #defining stuff for classes
 frog = frog()
 car = cars(225, "LEFT", 10)
 water = Water(400,100,0,30)
-win = Win(400, 25, 0, 0)
+#win = Win(400, 25, 0, 0)
 
 FPS = 10
 time = 0
@@ -24,10 +24,10 @@ fpsClock = pygame.time.Clock()
 #creating sprite groups for turtles, enemies
 waterObjects = pygame.sprite.Group()
 enemy = pygame.sprite.Group()
-endgame = pygame.sprite.Group()
+#endgame = pygame.sprite.Group()
 #cars = pygame.sprite.Group()
 enemy.add(water)
-endgame.add(win)
+#endgame.add(win)
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
 pygame.display.set_caption("Frogger")
@@ -40,7 +40,7 @@ background_y = 0
 #checks to see if frog is on turtle
 global onWaterObj
 onWaterObj = False
-isWin = False
+#isWin = False
 game_over = False
 
 text = ""
@@ -111,10 +111,10 @@ def is_collision():
     if pygame.sprite.spritecollideany(frog, enemy):
         game_over = True
         return game_over
-    elif pygame.sprite.spritecollideany(frog, endgame):
-        game_over = False
-        isWin = True
-        return game_over
+    #elif pygame.sprite.spritecollideany(frog, endgame):
+    #    game_over = False
+        #isWin = True
+    #    return game_over
     else:
         game_over = False
         return game_over
@@ -123,9 +123,9 @@ def is_collision():
         return game_over
 
 #displays a win message
-def win():
-    if isWin == True:
-        scorebox('You win.')
+#def win():
+#    if isWin == True:
+#        scorebox('You win.')
 
 #displays a game over message
 def game_over():
@@ -182,6 +182,6 @@ while True:
     if onWaterObj != False:
         frog.rect.x = onWaterObj.rect.x
     game_over = is_collision()
-    win()
+    #win()
     pygame.display.update()
     fpsClock.tick(FPS)
