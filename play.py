@@ -112,15 +112,7 @@ def is_collision():
     global game_over
     notGameOver = False
     if pygame.sprite.spritecollideany(frog, enemy):
-        for x in waterObjects:
-            if pygame.sprite.collide_rect(frog, x):
-                notGameOver = True
-                onWaterObj = x
-        if notGameOver == False:
-            game_over = True
-            return game_over
-        else:
-            return game_over
+        return game_over
     elif pygame.sprite.spritecollideany(frog, endgame):
         game_over = False
         isWin = True
