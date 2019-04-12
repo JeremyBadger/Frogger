@@ -8,7 +8,7 @@ from waterClass import Water
 from winClass import Win
 
 frog = frog()
-car = cars(225)
+car = cars(225, "LEFT", 10)
 water = Water(400,100,0,30)
 win = Win(400, 25, 0, 0)
 
@@ -42,20 +42,22 @@ game_over = False
 
 text = ""
 def add_cars():
-    if time % 120 == 0:
-        car = cars(225)
+    if time % 50 == 0:
+        car = cars(225, "LEFT", 10)
+        enemy.add(car)
+    elif time % 10 == 0:
+        car = cars(175, "RIGHT", 15)
         enemy.add(car)
 
 def update_cars():
     for car1 in enemy:
         if car1.type == "CAR":
-            car1.move()
             car1.update()
             DISPLAYSURF.blit(car1.image, car1.rect)
-    if car.rect.x < 0 or car.rect.x > 400:
-        car.kill()
-    elif car.rect.y < 0 or car.rect.y > 300:
-        car.kill()
+    #if car.rect.x < 0 or car.rect.x > 400:
+    #    car.kill()
+    #elif car.rect.y < 0 or car.rect.y > 300:
+    #    car.kill()
 
 #def update_frog():
 
