@@ -1,3 +1,4 @@
+#imports things
 import pygame, sys, time
 from pygame.locals import *
 
@@ -7,6 +8,7 @@ from turtleClass import *
 from waterClass import Water
 from winClass import Win
 
+#defining stuff for classes
 frog = frog()
 car = cars(225, "LEFT", 10)
 water = Water(400,100,0,30)
@@ -19,6 +21,7 @@ pygame.init()
 
 fpsClock = pygame.time.Clock()
 
+#creating sprite groups for turtles, enemies
 waterObjects = pygame.sprite.Group()
 enemy = pygame.sprite.Group()
 endgame = pygame.sprite.Group()
@@ -29,18 +32,21 @@ endgame.add(win)
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
 pygame.display.set_caption("Frogger")
 
+#creates background
 BACKGROUND = pygame.image.load('resources/background.png')
 background_x = 0
 background_y = 0
 global isWin
 isWin = False
 
+#checks to see if frog is on turtle
 global onWaterObj
 onWaterObj = False
 
 game_over = False
 
 text = ""
+#adds car sprites every 4 seconds
 def add_cars():
     if time % 50 == 0:
         car = cars(225, "LEFT", 10)
@@ -49,6 +55,7 @@ def add_cars():
         car = cars(175, "RIGHT", 15)
         enemy.add(car)
 
+#checks to see if cars are out of bounds/moves cars
 def update_cars():
     for car1 in enemy:
         if car1.type == "CAR":
@@ -61,6 +68,7 @@ def update_cars():
 
 #def update_frog():
 
+#adds turtles going in different directions in the water
 def add_turtles():
     if time % 30 == 0:
         turtles = WaterObject(100, "LEFT", 6)
@@ -74,10 +82,13 @@ def add_turtles():
         turtles4 = WaterObject(25, "LEFT", 8)
         waterObjects.add(turtles4)
 
+#is supposed to be adding logs every 4 seconds
+#except we never used it
 def add_logs():
     if time % 120 == 0:
         waterObjects.add(log)
 
+#moves turtles
 def update_turtles():
     for turtle1 in waterObjects:
         turtle1.update()
@@ -88,6 +99,7 @@ def update_turtles():
 #        log1.update()
 #        DISPLAYSURF.blit(log1.image, log1.rect)
 
+#creates a textbox that displays the score
 def scorebox(text):
     BASICFONT = pygame.font.Font("freesansbold.ttf", 16)
     Surf = BASICFONT.render(text, 1, (0,0,0))
@@ -95,6 +107,7 @@ def scorebox(text):
     Rect.topleft = (10, 10)
     DISPLAYSURF.blit(Surf, Rect)
 
+#checks for collisions with enemies, water, turtles
 def is_collision():
     global game_over
     notGameOver = False
@@ -119,10 +132,12 @@ def is_collision():
         game_over = True
         return game_over
 
+#displays a win message
 def win():
     if isWin == True:
         scorebox('You win.')
 
+#displays a game over message
 def game_over():
     global game_over
     if game_over == True:
@@ -148,6 +163,7 @@ while True:
         #update_logs()
         scorebox("Score: " + str(frog.points))
         time += 1
+        #checks for user quit
     for event in pygame.event.get():
             if event.type==QUIT:
                 pygame.quit()
