@@ -36,13 +36,11 @@ pygame.display.set_caption("Frogger")
 BACKGROUND = pygame.image.load('resources/background.png')
 background_x = 0
 background_y = 0
-global isWin
-isWin = False
 
 #checks to see if frog is on turtle
 global onWaterObj
 onWaterObj = False
-
+isWin = False
 game_over = False
 
 text = ""
