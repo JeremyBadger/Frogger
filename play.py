@@ -65,6 +65,10 @@ def update_cars():
     #    car.kill()
 
 #def update_frog():
+#    frog.up()
+#    frog.down()
+#    frog.left()
+#    frog.right()
 
 #adds turtles going in different directions in the water
 def add_turtles():
@@ -111,15 +115,14 @@ def is_collision():
     if pygame.sprite.spritecollideany(frog, enemy) and not pygame.sprite.spritecollideany(frog, waterObjects):
         game_over = True
         return game_over
-    #elif pygame.sprite.spritecollideany(frog, endgame):
-    #    game_over = False
-        #isWin = True
-    #    return game_over
+    elif frog.rect.x <= 0 or frog.rect.x >= 400:
+        game_over = True
+        return game_over
+    elif frog.rect.y <= 0 or frog.rect.y >= 300:
+        game_over = True
+        return game_over
     else:
         game_over = False
-        return game_over
-    if frog.rect.x == 0 or frog.rect.x > 400:
-        game_over = True
         return game_over
 
 #displays a win message
@@ -149,6 +152,7 @@ while True:
         add_cars()
         update_cars()
         add_turtles()
+        #update_frog()
         #add_logs
         #update_logs()
         scorebox("Score: " + str(frog.points))
