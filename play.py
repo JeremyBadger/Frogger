@@ -108,7 +108,7 @@ def scorebox(text):
 #checks for collisions with enemies, water, turtles
 def is_collision():
     global game_over
-    if pygame.sprite.spritecollideany(frog, enemy):
+    if pygame.sprite.spritecollideany(frog, enemy) and not pygame.sprite.spritecollideany(frog, waterObjects):
         game_over = True
         return game_over
     #elif pygame.sprite.spritecollideany(frog, endgame):
