@@ -12,7 +12,6 @@ from waterClass import Water
 frog = frog()
 car = cars(225, "LEFT", 10)
 water = Water(400,100,0,30)
-#win = Win(400, 25, 0, 0)
 
 FPS = 10
 time = 0
@@ -24,10 +23,7 @@ fpsClock = pygame.time.Clock()
 #creating sprite groups for turtles, enemies
 waterObjects = pygame.sprite.Group()
 enemy = pygame.sprite.Group()
-#endgame = pygame.sprite.Group()
-#cars = pygame.sprite.Group()
 enemy.add(water)
-#endgame.add(win)
 
 DISPLAYSURF = pygame.display.set_mode((400,300), 0, 32)
 pygame.display.set_caption("Frogger")
@@ -40,7 +36,7 @@ background_y = 0
 #checks to see if frog is on turtle
 global onWaterObj
 onWaterObj = False
-#isWin = False
+isWin = False
 game_over = False
 
 text = ""
@@ -59,16 +55,6 @@ def update_cars():
         if car1.type == "CAR":
             car1.update()
             DISPLAYSURF.blit(car1.image, car1.rect)
-    #if car.rect.x < 0 or car.rect.x > 400:
-    #    car.kill()
-    #elif car.rect.y < 0 or car.rect.y > 300:
-    #    car.kill()
-
-#def update_frog():
-#    frog.up()
-#    frog.down()
-#    frog.left()
-#    frog.right()
 
 #adds turtles going in different directions in the water
 def add_turtles():
@@ -84,22 +70,11 @@ def add_turtles():
         turtles4 = WaterObject(25, "LEFT", 8)
         waterObjects.add(turtles4)
 
-#is supposed to be adding logs every 4 seconds
-#except we never used it
-def add_logs():
-    if time % 120 == 0:
-        waterObjects.add(log)
-
 #moves turtles
 def update_turtles():
     for turtle1 in waterObjects:
         turtle1.update()
         DISPLAYSURF.blit(turtle1.image, turtle1.rect)
-
-#def update_logs():
-#    for log1 in waterObjects:
-#        log1.update()
-#        DISPLAYSURF.blit(log1.image, log1.rect)
 
 #creates a textbox that displays the score
 def scorebox(text):
@@ -126,9 +101,11 @@ def is_collision():
         return game_over
 
 #displays a win message
-#def win():
-#    if isWin == True:
-#        scorebox('You win.')
+def win():
+    global isWin
+    if frog.points == 1100:
+        isWin = True
+        return isWin
 
 #displays a game over message
 def game_over():
@@ -143,12 +120,7 @@ while True:
     if game_over == True:
         pygame.quit()
         sys.exit()
-        #frog.kill()
-        #car.kill()
-        #turtle.kill()
-        #log.kill()
-        #game_over()
-    if game_over == False:
+    elif game_over == False:
         add_cars()
         update_cars()
         add_turtles()
@@ -157,6 +129,10 @@ while True:
         #update_logs()
         scorebox("Score: " + str(frog.points))
         time += 1
+    if isWin == True:
+        BACKGROUND = pygame.image.load('resources/win.png')
+        DISPLAYSURF.blit(BACKGROUND,(background_x, background_y))
+
         #checks for user quit
     for event in pygame.event.get():
             if event.type==QUIT:
@@ -186,6 +162,7 @@ while True:
     if onWaterObj != False:
         frog.rect.x = onWaterObj.rect.x
     game_over = is_collision()
+    isWin = win()
     #win()
     pygame.display.update()
     fpsClock.tick(FPS)
